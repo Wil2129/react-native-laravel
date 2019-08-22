@@ -1,15 +1,3 @@
-/laravel-api/node_modules
-/laravel-api/public/hot
-/laravel-api/public/storage
-/laravel-api/storage/*.key
-/laravel-api/vendor
-/laravel-api/.env
-/laravel-api/.phpunit.result.cache
-/laravel-api/Homestead.json
-/laravel-api/Homestead.yaml
-/laravel-api/npm-debug.log
-/laravel-api/yarn-error.log
-
 # OSX
 #
 /ReactNativeApp/.DS_Store
@@ -68,4 +56,5 @@
 /ReactNativeApp/*.jsbundle
 
 # CocoaPods
-/ReactNativeApp/ios/Pods/
+/ReactNativeApp//ios/Pods/
+/ReactNativeApp/
