@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('contact_forms', 'ContactFormController@index');
+Route::get('contact_forms/{contactForm}', 'ContactFormController@show');
+Route::post('contact_forms', 'ContactFormController@store');
+Route::put('contact_forms/{contactForm}', 'ContactFormController@update');
+Route::delete('contact_forms/{contactForm}', 'ContactFormController@destroy');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
