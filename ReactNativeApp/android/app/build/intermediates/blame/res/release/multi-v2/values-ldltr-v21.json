@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\micha\\OneDrive\\Documents\\GitHub\\react-native-laravel\\ReactNativeApp\\android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\micha\\.gradle\\caches\\transforms-2\\files-2.1\\481b1d3ba31abf0dfc516df109affa40\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}

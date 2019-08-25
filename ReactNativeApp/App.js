@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  ActivityIndicator,
   Button,
   SafeAreaView,
   StyleSheet,
@@ -30,9 +31,13 @@ const styles = StyleSheet.create({
   textArea: {
     flex: 3,
   },
+  activityIndicator: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   submitButton: {
     flex: 0.75,
-    fontSize: 24,
+    marginVertical: 16,
     marginHorizontal: 100,
     borderRadius: 8,
   },
@@ -41,11 +46,18 @@ const styles = StyleSheet.create({
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {name: '', email: '', subject: '', message: ''};
+    this.state = {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+      isLoading: false,
+    };
   }
 
   _onSubmit() {
-    fetch('http://larareact.herokuapp.com/public/api/contact_forms', {
+    this.setState({isLoading: true});
+    fetch('https://larareact.herokuapp.com/public/api/contact_forms', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -58,14 +70,32 @@ export default class App extends Component {
         message: this.state.message,
       }),
     })
-      .then(response => alert('Item created successfully'))
-      .catch(error => console.error('Error:', error));
+      .then(response => response.json())
+      .then(response => {
+        alert(
+          'You can view what you just uploaded at \nhttps://larareact.herokuapp.com/public/api/contact_forms/' +
+            response.id,
+        );
+        this.setState({isLoading: false});
+      })
+      .catch(error => {
+        this.setState({isLoading: false});
+        alert(error);
+      });
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={styles.activityIndicator}>
+          <ActivityIndicator size="large" />
+        </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
-        <ToolbarAndroid style={styles.toolbar} title="Contact Form"/>
+        <ToolbarAndroid style={styles.toolbar} title="Contact Form" />
         <SafeAreaView style={styles.container}>
           <TextInput
             style={styles.textInput}
