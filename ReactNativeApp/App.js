@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
 import {
   Button,
@@ -13,11 +5,17 @@ import {
   StyleSheet,
   View,
   TextInput,
+  ToolbarAndroid,
 } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  toolbar: {
+    backgroundColor: '#2196F3',
+    height: 56,
+    alignSelf: 'stretch',
   },
   textInput: {
     flex: 1,
@@ -33,10 +31,9 @@ const styles = StyleSheet.create({
     flex: 3,
   },
   submitButton: {
-    alignSelf: 'center',
     flex: 0.75,
     fontSize: 24,
-    margin: 150,
+    marginHorizontal: 100,
     borderRadius: 8,
   },
 });
@@ -68,8 +65,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <ToolbarAndroid style={styles.toolbar} title="Contact Form"/>
+        <SafeAreaView style={styles.container}>
           <TextInput
             style={styles.textInput}
             placeholder="Name"
@@ -101,8 +99,8 @@ export default class App extends Component {
               color="#40C4FF"
             />
           </View>
-        </View>
-      </SafeAreaView>
+        </SafeAreaView>
+      </View>
     );
   }
 }
