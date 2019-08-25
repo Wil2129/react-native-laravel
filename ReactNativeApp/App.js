@@ -94,12 +94,13 @@ export default class App extends Component {
             onChangeText={message => this.setState({message})}
             value={this.state.message}
           />
-          <Button
-            style={styles.submitButton}
-            onPress={this._onSubmit.bind(this)}
-            title="Submit"
-            color="#40C4FF"
-          />
+          <View style={styles.submitButton}>
+            <Button
+              onPress={this._onSubmit.bind(this)}
+              title="Submit"
+              color="#40C4FF"
+            />
+          </View>
         </View>
       </SafeAreaView>
     );
