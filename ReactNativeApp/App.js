@@ -41,12 +41,11 @@ const styles = StyleSheet.create({
 export default class App extends Component {
   constructor(props) {
     super(props);
-    const url = ''; //The URL of the web server where the Laravel API is running
     this.state = {name: '', email: '', subject: '', message: ''};
   }
 
   _onSubmit() {
-    fetch(this.url + '/api/contact_forms', {
+    fetch('http://larareact.herokuapp.com/public/api/contact_forms', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
